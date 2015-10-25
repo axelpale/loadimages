@@ -1,0 +1,42 @@
+{
+  "name": "loadimages",
+  "version": "0.2.0",
+  "description": "Simple: give image paths and a callback that will be called when the loading is finished",
+  "keywords": [
+    "asynchronous",
+    "image",
+    "loading"
+  ],
+  "homepage": "https://github.com/axelpale/loadimages",
+  "main": "index.js",
+  "author": {
+    "name": "Akseli Palen",
+    "email": "akseli.palen@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/axelpale/loadimages.git"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/axelpale/loadimages/blob/master/LICENSE"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.3",
+    "browserify": "^11.2.0",
+    "mocha-phantomjs": "^4.0.1",
+    "phantomjs": "^1.9.18",
+    "chai": "^3.3.0"
+  },
+  "scripts": {
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "jshint index.js tests/*.js",
+    "test:unit": "mocha-phantomjs tests/testrunner.html",
+    "build": "npm run test:lint && npm run build:bundle && npm run test:unit",
+    "build:bundle": "browserify index.js --standalone loadimages -o loadimages.js",
+    "build:dev": "browserify index.js --debug --standalone loadimages -o loadimages.js"
+  }
+}
