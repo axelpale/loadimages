@@ -6,7 +6,7 @@ Based on [load-images](https://www.npmjs.com/package/load-images).
 
 ## Install
 
-    npm install loadimages
+    $ npm install loadimages
 
 or
 

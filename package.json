@@ -1,6 +1,6 @@
 {
   "name": "loadimages",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Load images by URL and call back when the loading is finished",
   "keywords": [
     "asynchronous",

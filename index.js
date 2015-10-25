@@ -6,8 +6,12 @@ module.exports = function loadimages(imgSrcs, then) {
   //     Will be called after all the images are loaded. If string was given,
   //     imgElements is an Image instead of array of Images.
 
-  var i, imgs, numberOfImages, onload, onloadsCalled, stringGiven,
-    thereWasError, thereWasSuccess;
+  var numberOfImages, stringGiven, thereWasSuccess, thereWasError, imgs;
+  var onloadsCalled, onload, onerror;
+
+  if (typeof then !== 'function') {
+    throw new Error('callback should be a function: ' + then);
+  }
 
   if (typeof imgSrcs === 'string') {
     numberOfImages = 1;

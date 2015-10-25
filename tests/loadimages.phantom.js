@@ -16,4 +16,10 @@ describe('loadimages', function () {
       img[0].src.should.equal(src);
     });
   });
+
+  it('should throw error if no callback given', function () {
+    expect(function () {
+      loadimages(src);
+    }).to.throw(Error, /callback/);
+  });
 });
