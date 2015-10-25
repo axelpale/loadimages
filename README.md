@@ -1,8 +1,8 @@
 # loadimages
 
-A JS microlibrary to ensure that an image is loaded before use. Give the function `loadimages` one or multiple image URLs and a callback function. The callback will be called after all the images are loaded and ready. If any of the images fail to load, an error is given to the callback.
+A JS microlibrary that lets you to be sure that the web browser has successfully loaded the image before use. Simply: give the function `loadimages` one or multiple image URLs and a callback function. The callback will be called after all the images are loaded and ready. If any of the images fail to load, an error is given to the callback.
 
-
+Based on [load-images](https://www.npmjs.com/package/load-images).
 
 ## Install
 
