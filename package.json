@@ -1,11 +1,13 @@
 {
   "name": "loadimages",
-  "version": "0.2.2",
-  "description": "Load images by URL and call back when the loading is finished",
+  "version": "1.0.0-alpha",
+  "description": "Load images by URL and call when the loading is finished",
   "keywords": [
     "asynchronous",
+    "consistent",
     "image",
-    "loading"
+    "loading",
+    "preload"
   ],
   "homepage": "https://github.com/axelpale/loadimages",
   "main": "index.js",
@@ -17,24 +19,21 @@
     "type": "git",
     "url": "git://github.com/axelpale/loadimages.git"
   },
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/axelpale/loadimages/blob/master/LICENSE"
-  },
+  "license": "MIT",
   "dependencies": {
   },
   "devDependencies": {
-    "jshint": "^2.8.0",
-    "mocha": "^2.3.3",
-    "browserify": "^11.2.0",
-    "mocha-phantomjs": "^4.0.1",
-    "phantomjs": "^1.9.18",
-    "chai": "^3.3.0"
+    "jshint": "^2.9.5",
+    "mocha": "^3.5.3",
+    "browserify": "^14.4.0",
+    "mocha-phantomjs-core": "^2.1.2",
+    "phantomjs-prebuilt": "^2.1.15",
+    "chai": "^4.1.2"
   },
   "scripts": {
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "jshint index.js tests/*.js",
-    "test:unit": "mocha-phantomjs tests/testrunner.html",
+    "test:unit": "phantomjs node_modules/mocha-phantomjs-core/mocha-phantomjs-core.js tests/testrunner.html",
     "build": "npm run test:lint && npm run build:bundle && npm run test:unit",
     "build:bundle": "browserify index.js --standalone loadimages -o loadimages.js",
     "build:dev": "browserify index.js --debug --standalone loadimages -o loadimages.js"
