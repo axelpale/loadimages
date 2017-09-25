@@ -1,22 +1,22 @@
 # loadimages
 
-A JS microlibrary that lets you to be sure that the web browser has successfully loaded the image before use. Simply: give the function `loadimages` one or multiple image URLs and a callback function. The callback will be called after all the images are loaded and ready. If any of the images fail to load, an error is given to the callback.
+This is a JavaScript micro-library for **preloading images** before use. The preloading allows you to read image.width, image.height, and other properties consistently without caring if the browser has cached the images or not. Simply: give the function `loadimages` one or multiple image URLs and a callback function. The callback will be called after all the images are downloaded, cached, and their properties ready to use. If any of the images fail to load, an error is given to the callback.
 
-Based on [load-images](https://www.npmjs.com/package/load-images).
+Based on [load-images](https://www.npmjs.com/package/load-images). The main difference is that where load-images always returns a map, we return an array of images if an array of URLs was given, and a single image if a single URL was given.
+
+
 
 ## Install
 
     $ npm install loadimages
 
-or
-
-    <script src="loadimages.js"></script>
+If you need a stand-alone bundle to be used without browserify or webpack, run `$ npm run build:bundle`.
 
 
 
 ## Usage
 
-    var loadimages = require('loadimages'); // if you use browserify
+    var loadimages = require('loadimages');
 
     // Load single image
     loadimages('img/lego.png', function (err, image) {
@@ -25,7 +25,7 @@ or
       // do stuff with your freshly loaded HTMLImageElement
       image.style.margin = '1.618em';
       document.body.appendChild(image);
-    })
+    });
 
     // Load multiple images in parallel
     var srcs = ['img/lego.png', 'http://i.imgur.com/Hbtar04.jpg'];
@@ -36,7 +36,7 @@ or
       var lego = images[0];
       var stephen = images[1];
       ...
-    })
+    });
 
 
 

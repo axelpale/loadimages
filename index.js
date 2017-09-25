@@ -63,6 +63,7 @@ module.exports = function loadimages(imgSrcs, then) {
   for (i = 0; i < imgSrcs.length; i += 1) {
     imgs.push(new Image());
     imgs[i].onload = onload;
+    imgs[i].onabort = onerror;
     imgs[i].onerror = onerror;
     imgs[i].src = imgSrcs[i];
   }
